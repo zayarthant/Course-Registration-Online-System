@@ -2,9 +2,9 @@
 # Eclipse
 ######################
 *.pydevproject
-.project
 .metadata
 tmp/
+build/
 tmp/**/*
 *.tmp
 *.bak
