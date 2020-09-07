@@ -39,37 +39,37 @@
             <div class="w3-threequarter">
                 <h3 class="w3-center"><b>Student Account Register</b></h3>
                 <hr/>
-                <div class="w3-clear w3-padding">
+                <form method="post" action="/users/register" class="w3-clear w3-padding">
                     <div class="w3-half w3-padding">
                         <p>
                             <label>Name</label>
-                            <input class="w3-input w3-border" type="text" placeholder="name"/>
+                            <input class="w3-input w3-border" type="text" placeholder="name" name="name"/>
                         </p>
                         <p>
                             <label>Email</label>
-                            <input class="w3-input w3-border" type="email" placeholder="email"/>
+                            <input class="w3-input w3-border" type="email" placeholder="email" name="email"/>
                         </p>
                         <p>
                             <label>Mobile</label>
-                            <input class="w3-input w3-border" type="text" placeholder="phone"/>
+                            <input class="w3-input w3-border" type="text" placeholder="phone" name="mobile"/>
                         </p>
 
                     </div>
                     <div class="w3-half w3-padding">
                         <p>
                             <label>Student ID</label>
-                            <input class="w3-input w3-border" type="text" placeholder="student id"/>
+                            <input class="w3-input w3-border" type="number" placeholder="student id" name="studentId"/>
                         </p>
                         <p>
                             <label>Password</label>
-                            <input class="w3-input w3-border" type="password" placeholder="password"/>
+                            <input class="w3-input w3-border" type="password" placeholder="password" name="password"/>
                         </p>
                         <p>
                             <label>Password</label>
-                            <input class="w3-input w3-border" type="password" placeholder="confirm password"/>
+                            <input class="w3-input w3-border" type="password" placeholder="confirm password" name="confirmPassword"/>
                         </p>
                     </div>
-                </div>
+                </form>
                 <p class="w3-center">
                     <button class="w3-button w3-light-green">Register</button>
                 </p>

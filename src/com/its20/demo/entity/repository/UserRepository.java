@@ -17,6 +17,13 @@ public class UserRepository {
 		defaultUser.setPassword("root");
 		defaultUser.setStudentId(3432L);
 		users.add(defaultUser);
+		User jaya = new User();
+		jaya.setEmail("jaya@prodev.institute");
+		jaya.setMobile("+95967423653");
+		jaya.setName("Jaya Sahita Avadata");
+		jaya.setPassword("root");
+		jaya.setStudentId(948932L);
+		users.add(jaya);
 	}
 
 	public List<User> getUsers() {
