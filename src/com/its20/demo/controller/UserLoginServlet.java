@@ -9,27 +9,27 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.its20.demo.entity.User;
-import com.its20.demo.service.UserService;
+import com.its20.demo.entity.Student;
+import com.its20.demo.service.StudentService;
 
 @WebServlet("/users/login")
 public class UserLoginServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 
-	private UserService userService;
+	private StudentService studentService;
 
 	@PostConstruct
 	public void init() {
-		userService = new UserService();
+		studentService = new StudentService();
 	}
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String email = req.getParameter("email").toString();
 		String password = req.getParameter("password").toString();
-		User user = userService.login(email, password);
-		req.getSession().setAttribute("user", user);
+		Student student = studentService.login(email, password);
+		req.getSession().setAttribute("user", student);
 		resp.sendRedirect( req.getContextPath() + "/dashboard.jsp");
 	}
 

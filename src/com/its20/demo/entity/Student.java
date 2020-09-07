@@ -1,6 +1,6 @@
 package com.its20.demo.entity;
 
-public class User {
+public class Student {
 	private Long studentId;
 	private String name;
 	private String email;

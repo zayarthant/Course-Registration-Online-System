@@ -10,24 +10,24 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.its20.demo.entity.User;
-import com.its20.demo.service.UserService;
+import com.its20.demo.entity.Student;
+import com.its20.demo.service.StudentService;
 
 @WebServlet("/users")
 public class UsersServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 
-	private UserService userService;
+	private StudentService studentService;
 
 	@PostConstruct
 	public void init() {
-		userService = new UserService();
+		studentService = new StudentService();
 	}
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		Iterator<User> iterator = userService.getUsers().iterator();
+		Iterator<Student> iterator = studentService.getUsers().iterator();
 		while (iterator.hasNext())
 			resp.getWriter().println(iterator.next());
 	}

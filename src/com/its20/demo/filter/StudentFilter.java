@@ -13,7 +13,7 @@ import javax.servlet.annotation.WebFilter;
 import com.its20.demo.exception.InvalidEmailAddressException;
 
 @WebFilter("/users/login")
-public class UserFilter implements Filter {
+public class StudentFilter implements Filter {
 
 	final String regex = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
 

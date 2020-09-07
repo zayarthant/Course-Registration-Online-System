@@ -1,11 +1,11 @@
-<%@ page import="com.its20.demo.entity.User"%>
-<%! User user; %>
+<%@ page import="com.its20.demo.entity.Student"%>
+<%!Student user;%>
 <%
-        	if(null == request.getSession().getAttribute("user")){
+	if(null == request.getSession().getAttribute("user")){
         		response.sendRedirect( request.getContextPath() + "/index.jsp");
         		return;
         	}else
-        		user = (User) request.getSession().getAttribute("user");
+        		user = (Student) request.getSession().getAttribute("user");
 %>
 <html>
     <head>
