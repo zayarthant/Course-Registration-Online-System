@@ -4,8 +4,10 @@
 	if(null == request.getSession().getAttribute("user")){
         		response.sendRedirect( request.getContextPath() + "/index.jsp");
         		return;
-        	}else
-        		user = (Student) request.getSession().getAttribute("user");
+     }else{
+    	 user = (Student) request.getSession().getAttribute("user");
+     }
+        		
 %>
 <html>
     <head>
@@ -31,6 +33,7 @@
                     <p>83 of 120 Credit</p>
                     <p>Undergraduate</p>
                     <p><a class="w3-text-red" href="<%=request.getContextPath()%>/users/logout">Logout</a></p>
+                    <p><a class="w3-text-blue" href="<%=request.getContextPath()%>/registerList.jsp">Register Courses</a></p>
                 </div>
             </section>
             <section>
