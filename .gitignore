@@ -1,18 +1,6 @@
 ######################
 # Eclipse
 ######################
-*.pydevproject
 .metadata
 tmp/
 build/
-tmp/**/*
-*.tmp
-*.bak
-*.swp
-*~.nib
-local.properties
-.classpath
-.settings/
-.loadpath
-.factorypath
-/src/main/resources/rebel.xml
