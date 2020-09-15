@@ -11,15 +11,7 @@
      }
         		
 %>
-<%-- <%
-	if(null == request.getSession().getAttribute("cours")){
-        		response.sendRedirect( request.getContextPath() + "/index.jsp");
-        		return;
-     }else{
-    	 cours = (Course) request.getSession().getAttribute("cours");
-     }
-        		
-%> --%>
+
 
 <html>
     <head>
