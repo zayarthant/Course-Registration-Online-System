@@ -31,9 +31,13 @@ public class StudentRepository {
 	}
 
 	public void setUsers(Student student) {
+		student.setName(student.getName().toLowerCase());
 		student.setEmail(student.getEmail().toLowerCase());
+		student.setMobile(student.getMobile().toLowerCase());
+		student.setStudentId(student.getStudentId());
 		students.add(student);
 	}
+	
 
 	public Student getUserByEmail(String email) {
 		email = email.toLowerCase();

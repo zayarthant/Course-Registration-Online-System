@@ -1,5 +1,7 @@
+
 <%@ page import="com.its20.demo.entity.Student"%>
 <%!Student user;%>
+
 <%
 	if(null == request.getSession().getAttribute("user")){
         		response.sendRedirect( request.getContextPath() + "/index.jsp");
@@ -9,6 +11,16 @@
      }
         		
 %>
+<%-- <%
+	if(null == request.getSession().getAttribute("cours")){
+        		response.sendRedirect( request.getContextPath() + "/index.jsp");
+        		return;
+     }else{
+    	 cours = (Course) request.getSession().getAttribute("cours");
+     }
+        		
+%> --%>
+
 <html>
     <head>
         <title>Dekastan State University</title>
@@ -53,7 +65,7 @@
                             <label>Course</label>
                             <select class="w3-select w3-border" name="option">
                                 <option value="" disabled selected></option>
-                                <option value="1">SK102 - Methodology of Sanskrit General</option>
+                                <option value="1"></option>
                                 <option value="2">SK103 - Literature in Sanskrit Language</option>
                                 <option value="2">SK105 - Communication skills in Sanskrit</option>
                                 <option value="3">SK428 - Historical Survey of Sanskrit Literature</option>

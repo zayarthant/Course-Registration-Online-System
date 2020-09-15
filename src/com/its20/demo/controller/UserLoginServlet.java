@@ -31,6 +31,7 @@ public class UserLoginServlet extends HttpServlet {
 		Student student = studentService.login(email, password);
 		req.getSession().setAttribute("user", student);
 		resp.sendRedirect( req.getContextPath() + "/dashboard.jsp");
+
 	}
 
 }

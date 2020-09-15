@@ -2,6 +2,11 @@
         	if(null != request.getSession().getAttribute("user"))
         		response.sendRedirect( request.getContextPath() + "/dashboard.jsp");
 %>
+<%-- <%
+        	if(null != request.getSession().getAttribute("cours"))
+        		response.sendRedirect( request.getContextPath() + "/dashboard.jsp");
+%> --%>
+
 <html>
     <head>
         <title>Dekastan State University</title>
@@ -39,7 +44,7 @@
             <div class="w3-threequarter">
                 <h3 class="w3-center"><b>Student Account Register</b></h3>
                 <hr/>
-                <form method="post" action="/users/register" class="w3-clear w3-padding">
+                <form method="post" action="users/register" class="w3-clear w3-padding">
                     <div class="w3-half w3-padding">
                         <p>
                             <label>Name</label>
@@ -69,10 +74,12 @@
                             <input class="w3-input w3-border" type="password" placeholder="confirm password" name="confirmPassword"/>
                         </p>
                     </div>
-                </form>
-                <p class="w3-center">
+                    
+                     <p class="w3-center">
                     <button class="w3-button w3-light-green">Register</button>
                 </p>
+                </form>
+               
             </div>
         </section>
 
