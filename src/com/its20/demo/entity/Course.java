@@ -4,7 +4,7 @@ public class Course {
 
 	private String id;
 	private String name;
-	private String department;
+	private Department department;
 	public String getId() {
 		return id;
 	}
@@ -17,10 +17,10 @@ public class Course {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getDepartment() {
+	public Department getDepartment() {
 		return department;
 	}
-	public void setDepartment(String department) {
+	public void setDepartment(Department department) {
 		this.department = department;
 	}
 	

@@ -1,4 +1,7 @@
-
+<%@page import="com.its20.demo.entity.Course"%>
+<%@page import="com.its20.demo.service.CourseService"%>
+<%@page import="com.its20.demo.entity.Department"%>
+<%@page import="com.its20.demo.service.DepartmentService"%>
 <%@ page import="com.its20.demo.entity.Student"%>
 <%!Student user;%>
 
@@ -10,6 +13,17 @@
     	 user = (Student) request.getSession().getAttribute("user");
      }
         		
+%>
+<%!DepartmentService departmentService = new DepartmentService();%>
+<%!CourseService courseService = new CourseService();%>
+<%!
+	private String isSelected(int id, String requestId){
+		if(null == requestId)
+			return "";
+		if(Integer.toString(id).equals(requestId))
+			return "selected";
+		return "";
+	}
 %>
 
 
@@ -34,33 +48,38 @@
                     <p>Mail : <%=user.getEmail() %></p>
                 </div>
                 <div class="w3-half">
-                    <p>83 of 120 Credit</p>
-                    <p>Undergraduate</p>
+                    <p></p>
+                    <p></p>
                     <p><a class="w3-text-red" href="<%=request.getContextPath()%>/users/logout">Logout</a></p>
                     <p><a class="w3-text-blue" href="<%=request.getContextPath()%>/registerList.jsp">Register Courses</a></p>
                 </div>
             </section>
             <section>
-                <form class="w3-card">
+                <form class="w3-card" method="post" action="<%=request.getContextPath()%>/courseRegister">
                     <h3 class="w3-light-green w3-padding w3-text-white">Registration</h3>
                     <div class="w3-container w3-clear">
                         <p>
                             <label>Department</label>
-                            <select class="w3-select w3-border" name="option">
-                                <option value="" disabled selected></option>
-                                <option value="1">Department Of Sanskrit</option>
-                                <option value="2">Department Of Pali</option>
-                                <option value="3">Department Of History</option>
+                            <select class="w3-select w3-border" name="option" onchange="window.location=this.options[this.selectedIndex].value">
+                            	<option disabled="disabled" <%=null == request.getParameter("department")?"selected":""%>/>
+						      <%for(Department department : departmentService.getDepartments()) { %>
+						      	<option 
+						      		value="<%=request.getRequestURL()+"?department="+department.getId()%>" 
+						      		<%=isSelected(department.getId(),request.getParameter("department"))%>
+						      	>
+						      		<%=department.getName() %>
+						      	</option>
+						      <%}%>
                             </select>
                         </p>
                         <p>
                             <label>Course</label>
-                            <select class="w3-select w3-border" name="option">
-                                <option value="" disabled selected></option>
-                                <option value="1"></option>
-                                <option value="2">SK103 - Literature in Sanskrit Language</option>
-                                <option value="2">SK105 - Communication skills in Sanskrit</option>
-                                <option value="3">SK428 - Historical Survey of Sanskrit Literature</option>
+                            <select class="w3-select w3-border" name="courseId">
+                                <% for(Course course : courseService.getCoursesByDepartment(request.getParameter("department"))){%>
+		                                <option value="<%=course.getId() %>">
+								      		<%=course.getId() %> - <%=course.getName() %>
+								      	</option>
+                                <%}%>
                             </select>
                         </p>
                         <div class="w3-clear">
@@ -68,11 +87,11 @@
                                 <p>
                                     <label>Semester</label>
                                 <div class="w3-center w3-half">
-                                    <input class="w3-radio" type="radio" name="gender" value="male" checked>
+                                    <input class="w3-radio" type="radio" name="semester" value="Winter" checked>
                                     <label>Winter</label>
                                 </div>
                                 <div class="w3-center w3-half">
-                                    <input class="w3-radio" type="radio" name="gender" value="female">
+                                    <input class="w3-radio" type="radio" name="semester" value="Summer">
                                     <label>Summer</label>
                                 </div>
                                 </p>
@@ -81,10 +100,10 @@
                                 <p>
                                     <label>Year</label>
                                 <div>
-                                    <select class="w3-select w3-border" name="option">
-                                        <option value="1">2021</option>
-                                        <option value="2">2022</option>
-                                        <option value="3">2023</option>
+                                    <select class="w3-select w3-border" name="year">
+                                        <option value="2021">2021</option>
+                                        <option value="2022">2022</option>
+                                        <option value="2023">2023</option>
                                     </select>
                                 </div>
                                 </p>

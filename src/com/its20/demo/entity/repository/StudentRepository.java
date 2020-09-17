@@ -31,11 +31,15 @@ public class StudentRepository {
 	}
 
 	public void setUsers(Student student) {
-		student.setName(student.getName().toLowerCase());
-		student.setEmail(student.getEmail().toLowerCase());
-		student.setMobile(student.getMobile().toLowerCase());
-		student.setStudentId(student.getStudentId());
 		students.add(student);
+	}
+	
+	public Student getUserById(long id) {
+		for (int i = 0; i < students.size(); i++) {
+			if (students.get(i).getStudentId() == id)
+				return students.get(i);
+		}
+		throw new UserNotFoundException("No account with " + id);
 	}
 	
 

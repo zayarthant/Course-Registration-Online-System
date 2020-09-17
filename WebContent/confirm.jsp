@@ -1,3 +1,22 @@
+<%@page import="com.its20.demo.entity.Student"%>
+<%@page import="com.its20.demo.service.RegistrationService"%>
+<%@page import="com.its20.demo.entity.Registration"%>
+<%@page import="com.its20.demo.service.CourseService"%>
+<%!Student user;%>
+<%!RegistrationService registrationService = new RegistrationService();%>
+<%!Registration registration; %>
+<%
+	if(null == request.getParameter("id") || null == request.getSession().getAttribute("user")){
+        response.sendRedirect( request.getContextPath() + "/index.jsp");
+        return;
+     }else{
+    	 long id = Long.parseLong(request.getParameter("id"));
+    	 registration = registrationService.getById(id);
+    	 user = (Student) request.getSession().getAttribute("user");
+     }
+        		
+%>
+
 <html>
     <head>
         <title>Dekastan State University</title>
@@ -12,30 +31,30 @@
         </header>
         <section id="studentInfo" class="w3-padding w3-clear">
             <div class="w3-half">
-                <p>John Done</p>
-                <p>NVE-4472</p>
-                <p>+21043567934</p>
-                <p>johndone@dksu.edu</p>
+                    <p>Username : <%=user.getName() %></p>
+                    <p>Id : <%=user.getStudentId() %></p>
+                    <p>Mobile : <%=user.getMobile() %></p>
+                    <p>Mail : <%=user.getEmail() %></p>
             </div>
             <div class="w3-half">
-                <p>83 of 120 Credit</p>
-                <p>Undergraduate</p>
+                <p></p>
+                <p></p>
             </div>
         </section>
         <section class="w3-container w3-margin w3-clear">
             <h3 class="w3-center"> <b>Register Information</b> </h3>
             <p>
-                Registration ID : <b>34233544</b>
+                Registration ID : <b><%=registration.getId()%>></b>
             </p>
             <p>
-                Course : <b>SK103 - Literature in Sanskrit Language</b>
+                Course : <b><%=registration.getCourse().getId() %> - <%=registration.getCourse().getName() %></b>
             </p>
             <p>
-                Semester : <b>Winter 2022</b>
+                Semester : <b><%=registration.getSemister() + " " + registration.getYear()%></b>
             </p>
         </section>
         <div class="w3-container w3-margin w3-center">
-            <a href="index.html" class="w3-button w3-light-green"> Dashboard</a>
+            <a href="<%=request.getContextPath()%>/dashboard.jsp" class="w3-button w3-light-green"> Dashboard</a>
         </div>
         <footer class="w3-light-green w3-container w3-padding-32 w3-bottom">
             <p class="w3-text-white">&copy; Dekastan State University (Civitas Universitas Dekastan)</p>
